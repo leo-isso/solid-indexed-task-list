@@ -1,0 +1,27 @@
+.tasklist {
+  width: 100%;
+}
+
+.tasklist_container {
+  margin: 25px 20px;
+}
+
+.tasklist_taskcard {
+  margin: 15px 0;
+}
+
+.tasklist_list {
+  margin: 20px 0;
+}
+
+.tasklist_title h2 {
+  margin: 0;
+}
+
+.tasklist_taskcard:first-of-type {
+  margin-top: 0;
+}
+
+.tasklist_taskcard:last-of-type {
+  margin-bottom: 0;
+}
