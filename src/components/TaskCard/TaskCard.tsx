@@ -17,12 +17,14 @@ const TaskCard: Component<Props> = ({
           <p>{title}</p>
         </div>
         <div class={style.taskcard_actions}>
-          <div
-            class={`${style.taskcard_complete} ${style.taskcard_action}`}
-            onClick={() => onComplete()}
-          >
-            <RiSystemCheckLine />
-          </div>
+          {!isCompleted && (
+            <div
+              class={`${style.taskcard_complete} ${style.taskcard_action}`}
+              onClick={() => onComplete()}
+            >
+              <RiSystemCheckLine />
+            </div>
+          )}
           <div
             class={`${style.taskcard_delete} ${style.taskcard_action}`}
             onClick={() => onDelete()}
