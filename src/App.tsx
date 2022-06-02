@@ -1,29 +1,21 @@
 import type { Component } from "solid-js";
 
-import logo from "./logo.svg";
-import styles from "./App.module.css";
 import Container from "./components/Container";
 import Header from "./components/Header";
+import TaskCard from "./components/TaskCard";
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
+    <div>
       <Header />
       <Container>
-        <header class={styles.header}>
-          <img src={logo} class={styles.logo} alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            class={styles.link}
-            href="https://github.com/solidjs/solid"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Solid
-          </a>
-        </header>
+        <br />
+        <TaskCard
+          isCompleted={false}
+          onComplete={() => {}}
+          onDelete={() => {}}
+          title="Testing the card"
+        />
       </Container>
     </div>
   );
