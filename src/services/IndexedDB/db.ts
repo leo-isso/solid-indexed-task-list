@@ -1,7 +1,7 @@
 import Dexie, { Table } from "dexie";
 
 export interface Task {
-  id: number;
+  id?: number;
   title: string;
   isComplete: boolean;
 }
