@@ -2,8 +2,10 @@ import type { Component } from "solid-js";
 import { RiSystemCheckLine, RiSystemCloseLine } from "solid-icons/ri";
 
 import style from "./TaskList.module.css";
-import { Props, SortedTaskItems, TaskListItems } from "./type";
 import TaskCard from "../TaskCard";
+
+import { Props, SortedTaskItems } from "./type";
+import { Task } from "../../services/IndexedDB/db";
 
 const TaskList: Component<Props> = ({ items }) => {
   const sortedTasks = items.reduce(
@@ -24,7 +26,7 @@ const TaskList: Component<Props> = ({ items }) => {
     }
   );
 
-  const renderItems = (items: TaskListItems[]) =>
+  const renderItems = (items: Task[]) =>
     items.map((item) => (
       <div class={style.tasklist_taskcard}>
         <TaskCard

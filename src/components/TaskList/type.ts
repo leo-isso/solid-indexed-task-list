@@ -1,14 +1,10 @@
-export type TaskListItems = {
-  id: string;
-  title: string;
-  isComplete: boolean;
-};
+import { Task } from "../../services/IndexedDB/db";
 
 export type SortedTaskItems = {
-  todo: TaskListItems[];
-  completed: TaskListItems[];
+  todo: Task[];
+  completed: Task[];
 };
 
 export type Props = {
-  items: TaskListItems[];
+  items: Task[];
 };
