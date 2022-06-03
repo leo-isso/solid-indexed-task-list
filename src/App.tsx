@@ -7,17 +7,17 @@ import TaskList from "./components/TaskList";
 const App: Component = () => {
   const items = [
     {
-      id: "123",
+      id: 123,
       title: "Testing cards ma boi 0",
       isComplete: false,
     },
     {
-      id: "1233",
+      id: 1233,
       title: "Testing cards ma boi 1",
       isComplete: true,
     },
     {
-      id: "125",
+      id: 125,
       title: "Testing cards ma boi 2",
       isComplete: false,
     },
