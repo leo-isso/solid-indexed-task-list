@@ -1,7 +1,9 @@
 import { DDB, Task } from "../IndexedDB/db";
 
 const TaskService = {
-  getMany() {},
+  async getMany() {
+    return await DDB.tasks.toArray();
+  },
 
   delete() {},
 
