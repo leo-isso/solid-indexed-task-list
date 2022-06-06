@@ -6,6 +6,12 @@ export interface Task {
   isComplete: boolean;
 }
 
+export interface ITask {
+  id: number;
+  title: string;
+  isComplete: boolean;
+}
+
 export class DexieDB extends Dexie {
   tasks!: Table<Task>;
 

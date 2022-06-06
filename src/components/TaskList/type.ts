@@ -1,10 +1,10 @@
-import { Task } from "../../services/IndexedDB/db";
+import { ITask, Task } from "../../services/IndexedDB/db";
 
 export type SortedTaskItems = {
-  todo: Task[];
-  completed: Task[];
+  todo: ITask[];
+  completed: ITask[];
 };
 
 export type Props = {
-  items: Task[];
+  items: ITask[];
 };

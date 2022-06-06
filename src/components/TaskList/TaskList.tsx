@@ -3,8 +3,9 @@ import type { Component } from "solid-js";
 import style from "./TaskList.module.css";
 import TaskCard from "../TaskCard";
 
+import TaskService from "../../services/task/task.service";
+import { ITask } from "../../services/IndexedDB/db";
 import { Props, SortedTaskItems } from "./type";
-import { Task } from "../../services/IndexedDB/db";
 
 const TaskList: Component<Props> = ({ items }) => {
   const sortedTasks = items.reduce(
@@ -25,14 +26,18 @@ const TaskList: Component<Props> = ({ items }) => {
     }
   );
 
-  const renderItems = (items: Task[]) =>
+  const renderItems = (items: ITask[]) =>
     items.map((item) => (
       <div class={style.tasklist_taskcard}>
         <TaskCard
           title={item.title}
           isCompleted={item.isComplete}
-          onComplete={() => {}}
-          onDelete={() => {}}
+          onComplete={() => {
+            TaskService.update(item.id);
+          }}
+          onDelete={() => {
+            TaskService.delete(item.id);
+          }}
         />
       </div>
     ));
