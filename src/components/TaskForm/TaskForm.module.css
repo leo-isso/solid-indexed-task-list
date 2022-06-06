@@ -1,0 +1,38 @@
+.taskform {
+  width: 100%;
+}
+
+.taskform_container {
+  display: flex;
+  width: 100%;
+}
+
+.taskform_container form {
+  margin: 25px 20px 0;
+  width: 100%;
+}
+
+.taskform_form {
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.taskform_form input {
+  padding: 5px 10px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.taskform_form button {
+  align-items: center;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  outline: none;
+  width: 25px;
+}
