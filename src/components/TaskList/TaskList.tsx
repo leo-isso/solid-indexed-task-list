@@ -1,5 +1,4 @@
 import type { Component } from "solid-js";
-import { RiSystemCheckLine, RiSystemCloseLine } from "solid-icons/ri";
 
 import style from "./TaskList.module.css";
 import TaskCard from "../TaskCard";
