@@ -2,6 +2,7 @@ import type { Component } from "solid-js";
 
 import Container from "./components/Container";
 import Header from "./components/Header";
+import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
 const App: Component = () => {
@@ -27,6 +28,7 @@ const App: Component = () => {
     <div>
       <Header />
       <Container>
+        <TaskForm />
         <TaskList items={items} />
       </Container>
     </div>
