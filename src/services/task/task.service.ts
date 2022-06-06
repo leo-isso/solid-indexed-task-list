@@ -5,9 +5,13 @@ const TaskService = {
     return await DDB.tasks.toArray();
   },
 
-  delete() {},
+  async delete(id: number) {
+    await DDB.tasks.delete(id);
+  },
 
-  update() {},
+  async update(id: number) {
+    await DDB.tasks.update(id, { isComplete: true });
+  },
 
   async create(data: Task) {
     await DDB.tasks.add(data);
