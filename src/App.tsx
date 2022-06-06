@@ -1,36 +1,34 @@
-import type { Component } from "solid-js";
+import { Component, createSignal, onMount } from "solid-js";
 
 import Container from "./components/Container";
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
+import { Task } from "./services/IndexedDB/db";
+
+import TaskService from "./services/task/task.service";
+
 const App: Component = () => {
-  const items = [
-    {
-      id: 123,
-      title: "Testing cards ma boi 0",
-      isComplete: false,
-    },
-    {
-      id: 1233,
-      title: "Testing cards ma boi 1",
-      isComplete: true,
-    },
-    {
-      id: 125,
-      title: "Testing cards ma boi 2",
-      isComplete: false,
-    },
-  ];
+  const [isLoading, setIsLoading] = createSignal(false);
+  const [tasks, setTasks] = createSignal<Task[]>([]);
+
+  onMount(async () => {
+    setIsLoading(true);
+    const tasks = await TaskService.getMany();
+    setTasks(tasks);
+    setIsLoading(false);
+  });
 
   return (
     <div>
       <Header />
-      <Container>
-        <TaskForm />
-        <TaskList items={items} />
-      </Container>
+      {!isLoading() && (
+        <Container>
+          <TaskForm />
+          <TaskList items={tasks()} />
+        </Container>
+      )}
     </div>
   );
 };
