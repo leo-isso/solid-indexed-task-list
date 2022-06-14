@@ -1,3 +1,7 @@
+# Solid IndexedDB Task List
+
+This project was created with the only purpose of testing the SolidJS library and create a POC using the IndexedDB to store browser's data, instead of using other resources.
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
