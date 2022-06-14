@@ -13,7 +13,7 @@ export interface ITask {
 }
 
 export class DexieDB extends Dexie {
-  tasks!: Table<Task>;
+  tasks!: Table<ITask>;
 
   constructor() {
     super("myDatabase");
