@@ -5,19 +5,23 @@ import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
-import { Task } from "./services/IndexedDB/db";
+import { ITask } from "./services/IndexedDB/db";
 
 import TaskService from "./services/task/task.service";
 
 const App: Component = () => {
   const [isLoading, setIsLoading] = createSignal(false);
-  const [tasks, setTasks] = createSignal<Task[]>([]);
+  const [tasks, setTasks] = createSignal<ITask[]>([]);
 
-  onMount(async () => {
+  const updateTasks = async () => {
     setIsLoading(true);
     const tasks = await TaskService.getMany();
     setTasks(tasks);
     setIsLoading(false);
+  };
+
+  onMount(async () => {
+    await updateTasks();
   });
 
   return (
@@ -26,7 +30,7 @@ const App: Component = () => {
       {!isLoading() && (
         <Container>
           <TaskForm />
-          <TaskList items={tasks()} />
+          <TaskList items={tasks()} onUpdateTask={updateTasks} />
         </Container>
       )}
     </div>
