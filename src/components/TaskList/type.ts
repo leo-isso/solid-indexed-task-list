@@ -7,4 +7,5 @@ export type SortedTaskItems = {
 
 export type Props = {
   items: ITask[];
+  onUpdateTask(): Promise<void>;
 };
