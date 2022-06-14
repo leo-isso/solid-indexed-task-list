@@ -7,7 +7,7 @@ import TaskService from "../../services/task/task.service";
 import { ITask } from "../../services/IndexedDB/db";
 import { Props, SortedTaskItems } from "./type";
 
-const TaskList: Component<Props> = ({ items }) => {
+const TaskList: Component<Props> = ({ items, onUpdateTask }) => {
   const sortedTasks = items.reduce(
     (prev: SortedTaskItems, item) => {
       const tasks = { ...prev };
@@ -32,11 +32,13 @@ const TaskList: Component<Props> = ({ items }) => {
         <TaskCard
           title={item.title}
           isCompleted={item.isComplete}
-          onComplete={() => {
-            TaskService.update(item.id);
+          onComplete={async () => {
+            await TaskService.update(item.id);
+            await onUpdateTask();
           }}
-          onDelete={() => {
-            TaskService.delete(item.id);
+          onDelete={async () => {
+            await TaskService.delete(item.id);
+            await onUpdateTask();
           }}
         />
       </div>
